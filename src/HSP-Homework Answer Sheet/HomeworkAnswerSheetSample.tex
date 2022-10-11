@@ -1,0 +1,60 @@
+\documentclass[code]{HSP-AnswerSheet}
+\usepackage{verbatim}
+
+% Settings :
+%\definecolor{cPrim}{RGB}{15, 115, 0}
+\colorlet{cPrim}{Blue}
+
+\title{Chapter ?? : Chapter title}
+\date{Semaine n°1}
+
+\begin{document}
+	\maketitle
+	
+	\begin{multicols*}{2}
+		
+		\subsection*{Exercise 1 p.42 : Introduction}
+		This class is purely cosmetic. It aims at automating some frequent tasks and giving a homogeneous appearance to all answer keys, in addition to automating some repetitive tasks (for example, changing the font for dyslexic students).
+		
+		\subsection*{Exercise 3 p.42 : Class Features}
+		The (few) features of this class are :
+		\begin{enumerate}[label=\bfseries\alph*.]
+			\item The accent color can be changed using the \\ \verb|\colorlet{cPrim}{...}| command in the document preamble.
+			\item The \verb*|enumitem| package is loaded to use the same numbering as that of the exercise (alphabetical, Arabic or Roman numeric numbering, ...)
+			\item The \verb*|siunitx| and \verb*|cancel| packages are loaded by default :
+			\begin{align*}
+				v&=\frac{d}{\Delta t}\\
+					\textbf{AN : }\quad
+				v&=\frac{ \SI{3.0}{\meter} }{ \SI{5.0}{\second} }\\
+				 &=\SI{0.6}{\meter\per\second}
+			\end{align*}
+		
+			\item The curriculum requires that units are optional in the development of the calculation. To reflect this, the units can be grayed out using the \verb|\SIgray| command :
+			\begin{align*}
+				v&=\frac{d}{\Delta t}\\
+				\textbf{AN : }\quad
+				v&=\frac{ \SIgray{3.0}{\meter} }{ \SIgray{5.0}{\second} }\\
+				&=\SI{0.6}{\meter\per\second}
+			\end{align*}
+		\end{enumerate}
+		
+		\subsection*{Exercise 3 p.42 : Class Options}
+		Some options can be provided to the class :
+		\begin{description}
+			\item[code] Imports the \verb|listings| package to typeset code (as Python for physics is part of the curriculum) :
+			\begin{lstlisting}[language=Python]
+#!/usr/bin/python3
+def print_hello_world():
+	print("Hello World !")
+
+print_hello_world()
+			\end{lstlisting}
+		\item[OpenDyslexic] Changes the document font to OpenDyslexic, to accommodate some dyslexic students.
+		
+		{\fontspec{OpenDyslexic} Here is a sample of the font.}
+		
+		\item[doublespacing] Changes the font spacing to 2, to accommodate some dyslexic students.
+		\end{description}
+		
+	\end{multicols*}
+\end{document}
