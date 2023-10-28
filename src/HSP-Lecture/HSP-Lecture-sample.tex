@@ -1,0 +1,170 @@
+\documentclass[tikz-cross]{HSP-Lecture}
+\usepackage[utf8]{inputenc}
+
+% Réglages :
+%\definecolor{cPrim}{RGB}{15, 115, 0}
+%\definecolor{cPrim}{RGB}{243,102,25} % Legrand Orange Book's "ocre"
+\settoggle{versionProf}{false}
+
+\chapNumber{N}
+\title{Lecture title}
+
+\begin{document}
+	\maketitle
+	
+	\section{Section}
+	\subsection{SubSection}
+	In this chapter, we'll explore the capabilities of this specific \LaTeX{} class:
+	
+	\begin{itemize}
+		\item \textbf{Cosmetic Layout :} This class focuses on enhancing the visual aesthetics of your document, ensuring a professional appearance.
+		\item \textbf{Customizable Accent Color :} You can easily adjust the accent color using \\
+		\verb|\definecolor{cPrim}{...}|.
+		\item \textbf{Interactive Learning :} Certain sections can be hidden using the \verb|versionProf| switch in the preamble, serving as blank spaces for student engagement.
+	\end{itemize}
+	
+	Now, let's examine some key elements:
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}
+			% Axe et lentille
+			\draw[-stealth, thick] (-0.4\linewidth,0) -- (0.4\linewidth,0);
+			\draw[stealth-stealth, thick] (0,-2) -- (0,2);
+			
+			% Centre optique :
+			\draw (0,0) node[above right]{$O$};
+			
+			% Foyers
+			\draw (-0.15\linewidth,0)
+			node[cross=2.5pt,rotate=45] (F) {}
+			node[below, yshift=-2pt]{$F$};
+			
+			\draw (0.15\linewidth,0)
+			node[cross=2.5pt,rotate=45] (F') {}
+			node[above, yshift=2pt]{$F'$};
+			
+			% Objet
+			\draw[-stealth] (-0.3\linewidth,0)
+			node (A) {}
+			node[below] {A}
+			-- ++(0,1)
+			node (B) {}
+			node[above] {B};
+			
+			% Image
+			\draw[-stealth] (0.3\linewidth,0)
+			node (A') {}
+			node[above] (A') {A'}
+			-- ++(0,-1)
+			node (B') {}
+			node[below] {B'};
+			
+			% Rayons
+			\usetikzlibrary{decorations.markings}
+			
+			\begin{scope}[very thick,decoration={
+					markings,
+					mark=at position 0.125 with {\arrow{>}},
+					mark=at position 0.375 with {\arrow{>}},
+					mark=at position 0.625 with {\arrow{>}},
+					mark=at position 0.875 with {\arrow{>}},}
+				]
+				\draw[thick, RoyalBlue, postaction={decorate}] (B.center) -- ++(0.3\linewidth,0) -- (F') -- (B'.center);
+				\draw[thick, ForestGreen, postaction={decorate}] (B) -- ++(0,0) -- (B'.center);
+				\draw[thick, BrickRed, postaction={decorate}] (B.center) -- (F) -- (0,-1) -- (B'.center);
+			\end{scope}
+			
+			\draw[-stealth] (0.2\linewidth,1) node[anchor=south west]{+}-- ++(0.75,0);
+			\draw[-stealth] (0.2\linewidth,1) -- ++(0,0.75);
+		\end{tikzpicture}
+		\caption{Lens, characterized by its optical center $O$ and foci $F$ and $F'$, forming the image $A'B'$ of an object $AB$.}
+	\end{figure}
+	
+	\begin{coursBase}
+		This section remains visible at all times, providing essential content.
+	\end{coursBase}
+	
+	\begin{cours}{4cm}
+		This section can be hidden using the \texttt{versionProf} switch, encouraging student interaction by allowing them to complete it.
+	\end{cours}
+	
+	\begin{attention}
+		This section contains critical information or reminders that should not be overlooked.
+	\end{attention}
+
+	\newpage
+	\section*{Application exercise: the microscope}
+	
+	A microscope uses removable lenses to image a small, distant object on the retina of the eye, or a camera. 
+	The system can be simply modeled\footnote{In reality, the complete system comprises at least three lenses: an objective, an eyepiece and the eye's crystalline lens. We're simplifying the situation here so that we can do the exercise...} as follows :
+	
+	\begin{center}
+		\begin{tikzpicture}
+			\usetikzlibrary{arrows.meta}
+			\usetikzlibrary{decorations.markings}
+			
+			% Grille
+			\draw [gray, step=1.0cm] (-7,-4) grid +(14,8);
+%			\draw [very thin, gray, step=0.1cm,xshift=0cm, yshift=0cm] (0,0) grid +(17,8);
+			
+			% Lentille & axe optique
+			\draw[very thick, {Stealth[width=3mm]}-{Stealth[width=3mm]}] (0,-3) -- (0,3);
+			\draw[very thick, -stealth, dashed] (-7,0) -- (7,0);
+			
+			% Centre optique :
+			\draw (0,0)
+			node[cross=5pt, thick] {}
+			node[above right]{$O$};
+			
+			% Foyers
+			\draw (-2,0)
+			node[cross=2.5pt,rotate=45] (F) {}
+			node[below, yshift=-2pt]{$F$};
+			
+			\draw (2,0)
+			node[cross=2.5pt,rotate=45] (F') {}
+			node[above, yshift=2pt]{$F'$};
+			
+			% Objet
+			\draw[-stealth] (-6,0)
+			node (A) {}
+			node[above] {A}
+			-- ++(0,-2)
+			node (B) {}
+			node[below] {B};
+			
+			\iftoggle{versionProf}{
+				% Image
+				\draw[-stealth] (3,0)
+				node (A') {}
+				node[below] (A') {A'}
+				-- ++(0,1)
+				node (B') {}
+				node[above] {B'};
+				
+				% Rayons
+				\draw[thick, RoyalBlue] (B.center) -- ++(6,0) -- (B'.center);
+				\draw[thick, ForestGreen] (B) -- ++(0,0) -- (B'.center);
+				\draw[thick, BrickRed] (B.center) -- (0,1) -- (B'.center);
+				
+				% Légende
+				\draw[thick, -stealth] (-6,2) -- ++(1,0) node[midway,below]{1mm};
+				\draw[thick, -stealth] (-6,2) -- ++(0,1) node[midway,left]{1mm};
+			}{}
+		\end{tikzpicture}
+	\end{center}
+	
+	\paragraph{Without completing the diagram:}
+	\begin{enumerate}
+		\item Give the values of $\overline{OA}$ and $\overline{OF'}$ and $\overline{AB}$.
+		\item Determine by calculation the position of the image $A'B'$ of object $AB$ through the lens.
+		\item Determine by calculation the direction and size of the image $A'B'$.
+	\end{enumerate}
+	
+	\paragraph{By completing the diagram :}
+	\begin{enumerate}
+		\setcounter{enumi}{3}
+		\item Draw the image $A'B'$ of object $AB$ through the lens. Check the results of the previous questions.
+	\end{enumerate}
+
+\end{document}

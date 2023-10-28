@@ -1,0 +1,60 @@
+\documentclass[code]{HSP-AnswerSheet}
+\usepackage{verbatim}
+
+% Settings :
+%\definecolor{cPrim}{RGB}{15, 115, 0}
+\colorlet{cPrim}{Blue}
+
+\title{Chapter ?? : Chapter title}
+\date{Week n°1}
+
+\begin{document}
+	\maketitle
+	
+	\begin{multicols*}{2}
+		
+		\subsection*{Exercise 1 p.42 : Introduction}
+		This class serves a purely cosmetic purpose. It aims to automate common tasks and maintain a consistent appearance for all answer keys. Additionally, it streamlines repetitive tasks, such as changing fonts for students with dyslexia.
+		
+		\subsection*{Exercise 2 p.42 : Class Features}
+		The class offers a few key features :
+		\begin{enumerate}[label=\bfseries\alph*.]
+			\item You can change the accent color using the \\ \verb|\colorlet{cPrim}{...}| command in the document preamble.
+			\item The class loads the \verb|enumitem| package to provide flexible and consistent numbering options, including alphabetical, Arabic, or Roman numeric numbering.
+			\item The class comes with the \verb|siunitx| and \verb|cancel| packages preloaded, allowing you to format units and expressions effortlessly. For example:
+			\begin{align*}
+				v&=\frac{d}{\Delta t}\\
+					\textbf{AN : }\quad
+				v&=\frac{ \SI{3.0}{\meter} }{ \SI{5.0}{\second} }\\
+				 &=\SI{0.6}{\meter\per\second}
+			\end{align*}
+		
+			\item To comply with the curriculum that allows units to be optional in calculation development, you can use the \verb|\SIgray| command to gray out units:
+			\begin{align*}
+				v&=\frac{d}{\Delta t}\\
+				\textbf{AN : }\quad
+				v&=\frac{ \SIgray{3.0}{\meter} }{ \SIgray{5.0}{\second} }\\
+				&=\SI{0.6}{\meter\per\second}
+			\end{align*}
+		\end{enumerate}
+		
+		\subsection*{Exercise 3 p.42 : Class Options}
+		Some options can be provided to the class :
+		\begin{description}
+			\item[code] Enables code typesetting by importing the \verb|listings| package. This feature is useful for teaching Python for physics :
+			\begin{lstlisting}[language=Python]
+#!/usr/bin/python3
+def print_hello_world():
+	print("Hello World !")
+
+print_hello_world()
+			\end{lstlisting}
+		\item[OpenDyslexic] Changes the document font to OpenDyslexic, making it more accessible for dyslexic students.
+		
+		{\fontspec{OpenDyslexic} Here is a sample of the font.}
+		
+		\item[doublespacing] Adjusts the font spacing to 2, which is helpful for students with dyslexia.
+		\end{description}
+		
+	\end{multicols*}
+\end{document}

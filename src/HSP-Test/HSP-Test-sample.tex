@@ -17,7 +17,7 @@
 \version{A}
 
 % Switch between the test subject and the answer sheet
-\settoggle{answerSheet}{false}
+\settoggle{answerSheet}{true}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Additionnal settings : %%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -34,59 +34,61 @@
 		\end{center}
 	}
 	
-	This "test" gives an overlook over the functionalities provided.
+	Introduction to the theme of the test : you can add text, images, quotes, etc. The current "test" gives an overlook over the functionalities provided.
 	
 	\section{Getting started -- changing the formatting}
 	
-	As you can see, exercises are defined using the \texttt{section} command ; one exercise.
+	As you can see, exercises are defined using the "section" command; one exercise.
 	
-	In practice, this paragraph could provide the context of a problem, which would be treated in several sub-parts (defined by the command \texttt{subsection}).
+	In practice, this paragraph could provide the context of a problem that will be addressed in several sub-parts (defined by the \texttt{subsection} command).
 	
 	\subsection{Adaptive document structure}
-	One of the main features of this class is the use of conditionals to alter the \emph{structure} of the document.
+	One of the main features of this class is the use of conditionals to modify the document's structure.
 	
 	\begin{enumerate}[label=\bfseries\arabic*.]
-		\item Change the \texttt{answerSheet} toggle (in the preamble of the \texttt{.tex} document, line 20) to \texttt{true} to change the entire document, and see the results to those questions.
+		\item To change the entire document and see the results for those questions, set the \texttt{answerSheet} toggle to \texttt{true} (located in the preamble of the \texttt{.tex} document, line 20).
 		\begin{answer}
-			That's how you do it ! Notice how :
+			This is how you do it! Notice that:
 			\begin{itemize}
-				\item A margin appeared on the right ; the questions' points will be shown there ;
-				\item The reminder paragraph, below the title, disappeared ;
-				\item The title now includes "Answer sheet".
+				\item A margin appears on the right where the questions' points are displayed.
+				\item The reminder paragraph below the title disappears.
+				\item The title now includes "Answer sheet."
 			\end{itemize}
 			
-			All by toggling a switch !
+			All of this can be achieved with the flip of a switch!
 		\end{answer}
 	
-		\item How are points indicated, when in \texttt{answerSheet} mode ?
+		\item How are points indicated when in \texttt{answerSheet} mode?
 		\begin{answer}
-			A given question's points are attributed using the \texttt{pts} command. For example, using \Verb{\pts{0.5}} at the end of this paragraph, displays the value of this item in the right margin. \pts{0.5}
+			Points for a given question are assigned using the \texttt{pts} command. For example, by using \Verb{\pts{0.5}} at the end of this paragraph, the value of this item is displayed in the right margin. \pts{0.5}
 			
-			You can call that command multiple times in a single answer, if the answer requires multiple parts graded individually ! \pts{0.5}
+			You can use this command multiple times in a single answer if the answer requires multiple parts graded individually. \pts{0.5}
 			
-			Notice that the points only appear in \texttt{answerSheet} mode.
+			Please note that points only appear in \texttt{answerSheet} mode.
 		\end{answer}
 	
 		\item Can you guess how I integrated this class into my workflow to be efficient ?
 		\begin{answer}
-			My idea was to be able to :
+			My idea was to :
 			\begin{itemize}
-				\item  Write a draft test subject in this document, without the answers ;
-				\item  Quickly try it out on paper, to prevent any major oversight in the test's design ;
-				\item  Switch to answer sheet mode ;
-				\item  Fix the typos in the questions \emph{while} code \footnote{Code, not type !} the answer sheet.
+				\item Write a draft test subject in this document without the answers.
+				\item Quickly try it out on paper to prevent any major oversights in the test's design.
+				\item Switch to \texttt{answerSheet} mode.
+				\item Correct typos in the questions \emph{while} coding\footnote{Coding, not typing !} the answer sheet.
 			\end{itemize}
 			
 			That way, I can design a test \emph{only by writing its answer sheet}.
 			
-			This prevents mistakes that can be made by going back and forth between two different documents : no pasting on the wrong document, no missing answer key... all the while automatically formatting the entire document, thus saving significant time.
+			This allows me to design a test by \emph{only writing its answer sheet}, eliminating the risk of pasting content in the wrong document and ensuring no missing answer key. 
 			
-			To further limit the risk of errors, the values are coded, not typed; the computer actually computes the results, in addition to displaying them ! See section \ref{sec:PythonTex}.
+			Additionally, the entire document is automatically formatted, saving significant time.
+			
+			To minimize the risk of errors, values are coded rather than typed, with the computer computing the results and displaying them. See section \ref{sec:PythonTex} for more details.
 		\end{answer}
 	\end{enumerate}
 	
 	\subsection{Other cosmetic settings}
-	Other macros and environment are provided for convenience ; they are only wrappers around packages :
+	This section outlines various macros, environments, and pre-loaded packages designed to enhance the cosmetic aspects of your document. These elements are provided for convenience and serve as wrappers around specific packages:
 	
 	\begin{doc}[Cosmetic environments and macros]
 		\setlength{\parindent}{0pt}
@@ -95,12 +97,12 @@
 		\vspace{-\baselineskip}		% sometimes hacks are still necessary...
 		\begin{multicols}{2}
 			\begin{itemize}
-				\item \Verb{\title{Test n°?}} : Title at the top of the sheet, \textbf{and} on the top right corner of every page.
-				\item \Verb{\duration{1 hour}} : small text below the title. Only appears on the test subject.
-				\item \Verb{\class{CLASS}} : Text on the top left corner of the page.
-				\item \Verb{\date{Week n°??}} : Text on the bottom left corner of the page.
+				\item \Verb{\title{Test n°?}} : Sets the title at the top of the sheet \textbf{and} in the top right corner of every page.
+				\item \Verb{\duration{1 hour}} : Displays small text below the title, but it only appears on the test subject.
+				\item \Verb{\class{CLASS}} : Places text on the top left corner of the page.
+				\item \Verb{\date{Week n°??}} : Includes text on the bottom left corner of the page.
 				\item \Verb{\colorlet{cPrim}{...}} and \newline
-				\Verb{\definecolor{cPrim}{...}} : Changes the accent color. I had a color for each grade level, which was handy for personal organisation, in addition to being pretty.
+				\Verb{\definecolor{cPrim}{...}} : Allows you to change the accent color. This is particularly useful for organizing content by grade level and for aesthetic purposes.
 			\end{itemize}
 		\end{multicols}
 		
@@ -108,9 +110,9 @@
 		\vspace{-\baselineskip}
 		\begin{multicols}{2}
 			\begin{itemize}
-				\item \Verb{\begin{doc}[Additionnal title]} : A framed document for the student's to analyse, like this one ! Actually just a \texttt{mdframed} environment.
-				\item \Verb{\begin{answer}} : an \texttt{mdframed} environment wrapped around an \texttt{environ} custom environment\footnote{meaning that verbatim environments will not work inside the \texttt{answer} env !}, that is displayed only in the answer sheet.
-				\item \texttt{enumerate}, as modified by the \texttt{enumitem} package : improved enumerated lists, allowing enumeration to be broken then resumed with the optional argument \texttt{resume}, and modification of items labels.
+				\item \Verb{\begin{doc}[Additionnal title]} : This creates a framed document for students to analyze, similar to the one you're currently reading. It's essentially an \texttt{mdframed} environment.
+				\item \Verb{\begin{answer}} : This environment is an \texttt{mdframed} wrapper around an \texttt{environ} custom environment that's displayed exclusively in the answer sheet.
+				\item \texttt{enumerate}, as modified by the \texttt{enumitem} package : This enhances enumerated lists by allowing enumeration to be interrupted and resumed using the optional argument \texttt{resume}. It also provides modifications for item labels.
 			\end{itemize}
 		\end{multicols}
 		
@@ -130,15 +132,15 @@
 	\end{doc}
 	
 	\begin{enumerate}[label=\bfseries\arabic*.]
-		\item Since the \textbf{mdframed} package comes loaded, it is possible to create your own frames, like those below :
+		\item Since the \texttt{mdframed} package is preloaded, you can create custom frames, as demonstrated below:
 	\end{enumerate}
 	
 	\begin{mdframed}[frametitle={\colorbox{white}{\space Data sheet\space}},
 					 frametitleaboveskip=-\ht\strutbox]
-		Data sheets are vital in physics ! We always have values and formulae to use, but sometimes knowing them by heart is not required.
+		Data sheets are essential in physics. We often deal with values and formulas, but memorizing them is not always necessary.
 		\begin{itemize}
 			\item $v = \frac{d}{\Delta t}$
-			\item The speed of light is $\SI{3.00e8}{\meter\per\second}$. Note the use of \texttt{siunitx} for typesetting the value !
+			\item The speed of light is $\SI{3.00e8}{\meter\per\second}$. Note the use of \texttt{siunitx} for formatting the value !
 		\end{itemize}
 	\end{mdframed}
 	
@@ -148,54 +150,53 @@
 					 linecolor=cPrim,
 %					 startinnercode={\hspace{\parindent}}
 					 ]
-		This information is really important : students really ought not to miss it!
+		This information is crucial; students should not overlook it.
 	\end{mdframed}
 	
 	\begin{enumerate}[resume,label=\bfseries\arabic*.]
-		\item See how, despite having exited the previous \texttt{enumerate} environment, the numbering resumed ? That's thanks to the \texttt{resume} argument provided by the \texttt{enumitem} package.
+		\item Notice how, despite exiting the previous \texttt{enumerate} environment, the numbering resumes. This is made possible by the \texttt{resume} argument provided by the \texttt{enumitem} package.
 	\end{enumerate}
 
 	\section{PythonTeX and its wrappers}
 	\label{sec:PythonTex}
 	\subsection{Context}
 	\label{subsec:pythonTex_context}
-	The second main feature of this class it to \emph{be able to compute answers}, rather than type them.
+	The second significant feature of this class is its \emph{ability to compute answers}, rather than manually type them.
 	
-	High school physics calculations tend to always follow the same structure, being :
+	In high school physics, calculations often follow a consistent structure:
 	\begin{itemize}
 		\item Write down the formula ;
 		\item Replace the terms with their values (and optionally their unit) ;
-		\item Compute the final value, and the final unit.
+		\item Compute the final value and the final unit.
 	\end{itemize}
 	
-	For example, a student would write this on their paper :
+	For example, a student might write the following on their paper:
 	\begin{align*}
 		v&=\frac{d}{\Delta t}\\
 		 &=\frac{\SI{30}{\meter}}{\SI{4.0}{\second}}\\
 		 &=\SI{7.5}{\meter\per\second}
 	\end{align*}
 	
-	Now, typing this about 20 times by hand into an answer sheet can easily lead to mistakes: I tend to, for example:
+	Manually copying this process into an answer sheet multiple times can lead to errors. Common mistakes include:
 	\begin{itemize}
-		\item Change the value in the second step, but not in the third;
-		\item Forget to convert some units between the second and third step (if I add an intermediate unit conversion);
-		\item Changing the units of quantities in the question; and forgetting to change it in the answer;
-		\item Being inconsistent with the significant figures;
-		\item and so on...
+		\item Changing the value in the second step but not in the third.
+		\item Forgetting to convert units between the second and third step (if an intermediate unit conversion is added).
+		\item Changing the units of quantities in the question but forgetting to update them in the answer.
+		\item Inconsistencies with significant figures, and more.
 	\end{itemize}
-	To sum up, this is an almost automatic process, usually done by hand, and prone to many errors...Why not automate it?
+	In summary, this is an almost automatic but error-prone process when done by hand. Why not automate it?
 	
 	\subsection{Python, Python\TeX}
 	\subsubsection{Why Python in \LaTeX{} ?}
-	To do that, I decided to integrate Python into the \TeX{} document using the PythonTeX library. I prefer this method to a pure \LaTeX{} solution for the following reasons:
+	To accomplish this, I decided to integrate Python into the \TeX{} document using the PythonTeX library. I prefer this approach over a purely \LaTeX{}-based solution for several reasons:
 	\begin{itemize}
-		\item I'm not comfortable programming in \LaTeX{}; I might have gotten away with the automatic calculation of values, but certainly not with that of units;
-		\item I came across a Python library that already did exactly what I needed: the \href{https://github.com/birkenfeld/ipython-physics}{\texttt{physics.py} library written by Georg Brandl}. It was much easier to adapt this library to produce \LaTeX{} code than to rewrite everything from scratch.
-		\item Programming in Python for physics is part of the curriculum; I had to have a working Python distribution installed already.
+		\item I'm not comfortable with programming in \LaTeX{}; I might have managed automatic value calculations, but certainly not unit conversions.
+		I discovered a Python library, \href{https://github.com/birkenfeld/ipython-physics}{\texttt{physics.py}, authored by Georg Brandl}, that already performed exactly what I needed. It was much easier to adapt this library to generate \LaTeX{} code than to start from scratch.
+		\item Programming in Python for physics aligns with the curriculum, so I already had a working Python distribution installed.
 	\end{itemize}
 	
 	\subsubsection{Quick example}
-	To reuse the example above in subsection \ref{subsec:pythonTex_context}, it's possible to do the following (follow along in the \texttt{.tex} document !)
+	To reuse the example from subsection \ref{subsec:pythonTex_context}, follow these steps (refer to the \texttt{.tex} document for the full process):
 	\begin{enumerate}
 		\item Define the quantities using a \texttt{pycode} block ;
 		% Mind that the following code will be executed as is : don't indent it, or it will cause an IndentationError !
@@ -206,17 +207,17 @@ d  = Q("30.0 m", prec=3)
 		
 		\item Type the formula : 
 			$$v=\frac{d}{\Delta t}$$
-		\item Retype the same formula, changing every symbols we want the value of with their Python variable, wrapped around the \Verb{\Py} macro :
+		\item Re-enter the same formula, replacing every symbol whose value you want with the corresponding Python variable, encapsulated within the \Verb{\Py} macro :
 			$$v=\frac{\Py{d}}{\Py{Δt}}$$
-		\item Retype the same formula, \emph{within the \Verb{\Py} macro, as if it was a Python operation} :
+		\item Re-enter the same formula, \emph{this time within the \Verb{\Py} macro, as if it were a Python operation} :
 			$$v=\Py{d/Δt}$$
-		\item Compile the document, following the Python\TeX{} doc :\\
+		\item Compile the document following the Python\TeX{} documentation :\\
 		Xe\LaTeX{} $\rightarrow$ PythonTex $\rightarrow$ Xe\LaTeX{} again.
 	\end{enumerate}
 	
-	Now, try to change the values in the \texttt{pycode} block above and recompile the document (step 5) : you will see the values are automatically changed !
+	Now, try changing the values in the \texttt{pycode} block above and recompile the document (step 5). You will see that the values are automatically updated.
 	
-	Note that while the result is the expected one, the significant digits of $\Delta t$ are not correctly displayed... This is a problem with the way Python formats strings, and has no solution yet, other than a hack (shown in doc. \ref{doc:python_commands}): which is to manually add the significant zero using the optional argument to \Verb{\Py} :
+	Note that, while the result is as expected, the significant digits of $\Delta t$ are not correctly displayed. This issue stems from the way Python formats strings and currently has no solution other than a workaround (explained in doc. \ref{doc:python_commands}), which involves manually adding the significant zero using the optional argument with \Verb{\Py} :
 		$$v=\frac{\Py{d}}{\Py[.0]{Δt}}$$
 	
 	\subsubsection{General usage}
@@ -224,16 +225,12 @@ d  = Q("30.0 m", prec=3)
 	\begin{doc}[\LaTeX{} macros]
 		\begin{description}[style=nextline, format=\bfseries]
 			\item[\Verb{\Py[additionnal]{PhysicalQuantity}}]
-				Wrapper around the Python\TeX{} \Verb{\pyc} command.\\
-				Calls the Python \texttt{PhysicalQuantity.latex} method, which prints the string\newline
-				\Verb{\SI{value+additionnal}{unit}}, and renders it with \LaTeX.
 				
-				The \texttt{additionnal} can be used to manually add missing significant digits, or uncertainties (which are not yet automatically computed).
-			
+				A wrapper around the Python\TeX{} \Verb{\pyc} command, which calls the Python \texttt{PhysicalQuantity.latex} method. It prints the string \Verb{\SI{value+additional}{unit}} and renders it using \LaTeX.
+				
+				The \texttt{additional} parameter can be used to manually add missing significant digits or uncertainties (which are not automatically computed).
 			\item[\Verb{\PyGray[additionnal]{PhysicalQuantity}}]
-				Identical to \Verb{\Py}, except that the unit is displayed in gray.
-				
-				The curriculum states that writing the unit in the development of the calculation is optional. Thus, graying out the unit helps to convey this idea, while making it clear that using units is useful (and often times, remind the students that units exist at all...).
+				This macro is identical to \Verb{\Py}, except that it displays the unit in gray. According to the curriculum, writing the unit during calculations is optional. Graying out the unit helps convey this idea while reminding students of the unit's importance (and the existence of units at all...).
 		\end{description}
 	\end{doc}
 	
@@ -241,26 +238,26 @@ d  = Q("30.0 m", prec=3)
 		\label{doc:python_commands}
 		\begin{description}[style=nextline, format=\bfseries]
 			\item[\Verb{Q(value, unit=None, stdev=None, prec=3, force_scientific=False)}]
-				The \texttt{PhysicalQuantity} (aliased \texttt{Q}) object. There are two constructor calling patterns:
+				The \texttt{PhysicalQuantity} (aliased as \texttt{Q}) object, with two constructor calling patterns:
 				\begin{enumerate}
-					\item \texttt{PhysicalQuantity(value, unit)}, where value is any number and unit is a string defining the unit
-					\item \texttt{PhysicalQuantity(value\_with\_unit)}, where \texttt{value\_with\_unit} is a string that contains both the value and the unit, i.e. \texttt{'1.5 m/s'}. This form is provided for more convenient interactive use.
+					\item \texttt{PhysicalQuantity(value, unit)}: Here, \texttt{value} can be any number, and \texttt{unit} is a string defining the unit.
+					\item \texttt{PhysicalQuantity(value\_with\_unit)}: In this form, \texttt{value\_with\_unit} is a string containing both the value and the unit, e.g., \texttt{'1.5 m/s'}. This format is provided for more convenient interactive use.
 				\end{enumerate}
 				\begin{description}[format=\ttfamily]
-					\item[stdev]\label{stdev} Integer. Standard deviation, or uncertainty. At the moment, cosmetic only ; it is not automatically computed, unlike units.
+					\item[stdev]\label{stdev} (Integer): Standard deviation or uncertainty. Currently, this is cosmetic only and is not automatically computed, unlike units.
 					\begin{pyconsole}
 from physics import Q
 print(Q("150 m/s").latex())
 print(Q("150 m/s", stdev=0.4).latex())
 					\end{pyconsole}
 					
-					\item[prec] Integer. Number of digits that should be displayed. Uses the Python general (\texttt{g}) string formatting method to display those SD.
+					\item[prec] (Integer) : Number of digits to display. It uses Python's general (\texttt{g}) string formatting method to display those significant digits.
 					\begin{pyconsole}
 print(Q("150 m/s").latex())         # Default : 3 digits
 print(Q("150 m/s", prec=5).latex()) # 5 digits
 					\end{pyconsole}
 					
-					\textcolor{cPrim}{\bfseries Warning :} Since string formatting is used, it inherits its faults ; mainly, if the value is too close to 1, the scientific notation will not be used and significant digits will be ignored (see below). 
+					\textcolor{cPrim}{\bfseries Warning :} due to string formatting, if the value is too close to 1, scientific notation may not be used, and significant digits will be ignored. Example :
 					\begin{pyconsole}
 print(Q("1.5 m/s").latex())         # Expected value : 1.50
 print(Q("1.5 m/s", prec=5).latex()) # Expected value : 1.5000
@@ -273,7 +270,7 @@ print(Q("1.5 m/s", prec=5).latex()) # Expected value : 1.5000
 						\Verb{\Py[000]{Q("1.5 m/s")}} : & \Py[000]{Q("1.5 m/s")}
 					\end{tabular}
 					
-					\item[\Verb{force_scientific}] Boolean. Forces the use of the scientific notation (\texttt{e}) string formatting method to display quantity values.
+					\item[\Verb{force_scientific}] (Boolean) : Forces the use of scientific notation (\emph{e}) in string formatting to display quantity values.
 					\begin{pyconsole}
 print(Q("15 m/s").latex())
 print(Q("15 m/s", force_scientific=True).latex())
@@ -282,19 +279,3 @@ print(Q("15 m/s", force_scientific=True).latex())
 		\end{description}
 	\end{doc}
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-Lors du titrage, l'équivalence est obtenue pour un volume versé $V_E = \Py[(4)]{VE}$ de la solution aqueuse de permanganate de potassium.
-\begin{enumerate}
-\item Compute something
-\item Add uncertainty (just for cosmetics for now ; displaying uncertainties in a way both automatic and pedagogical is a pain)
-\end{enumerate}
